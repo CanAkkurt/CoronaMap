@@ -1,0 +1,27 @@
+
+.content {
+  margin: auto;
+  width: 85%; 
+  padding: 10px;
+    
+}
+
+
+
+
+
+.header {
+  background-color: white;
+  grid-area: header;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}

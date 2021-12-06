@@ -1,7 +1,7 @@
 
 import React from 'react';
-
 import WorldMap from 'react-svg-worldmap';
+import './map.css';
 
 
 
@@ -30,33 +30,35 @@ function WereldMap() {
   
   const [clickedLocation, setClickedLocation] = React.useState();
   const [clickedAmount, setClickedAmount] = React.useState();
-
+  const [nieuwCases, setNieuwCases] = React.useState();
 
   const handleLocationClick = (event) => {
     const cLocation = event.countryName;
-    const amount = event.countryValue
+    const amount = event.countryValue;
+    const cases = event.countryAantal;
     setClickedLocation(cLocation);
     setClickedAmount(amount)
+    setNieuwCases(cases)
     console.log("clickedLocationId",event);
     console.log("aantal",event.countryAantal)
     //window.open(this.links[clickedLocationId], "_blank");
   };
 
-
+  const width = Math.min(window.innerHeight, window.innerWidth) * 0.75;
  
 
 
 
   return (
     
-    <div > 
-     <WorldMap  title="covid map" size="xxl" color="red"   data={data} onClickFunction={handleLocationClick} frame="true" richInteraction="true" />
-     <div className="locationName">
-          Clicked location: {clickedLocation}
-        </div>
-        <div className="examples__block__info__item">
-          aantal covid: {clickedAmount}
-        </div>
+    <div className = "container"> 
+     <div className="map"><WorldMap  title="covid map" size={width} color="red"   data={data} onClickFunction={handleLocationClick}  richInteraction="true" /></div>
+  
+     <div className="info">
+          <p>Clicked location: {clickedLocation}</p>
+          <p>aantal covid: {clickedAmount}</p>
+          <p>aantal nieuwe covid: {nieuwCases}</p>
+     </div>
     </div>
    
   );
