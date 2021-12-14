@@ -69,14 +69,15 @@ function Graph() {
         options={options}
         series={series}
         type="area"
-        height={350}
+        height={200}
+        width={400}
       />
       <br />
       <ReactApexChart
         options={options}
         series={series}
         type="bar"
-        height={350}
+        height={200}
       />
     </div>
   );

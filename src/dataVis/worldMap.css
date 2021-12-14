@@ -1,0 +1,49 @@
+
+div.container{
+  padding:50px;
+  padding-top:50px;
+  margin:0;
+ 
+}
+
+div.map {
+  border:solid;
+  left:10px;
+  float:left;
+  position:relative;
+}
+
+div.dataVis {
+  border:solid;
+}
+
+/* div.map {
+  
+  left:10px;
+  left:-10px; 
+  position:absolute;
+  border: solid;
+  float:left;
+  display: inline-block;
+  
+} */
+
+
+
+/* div.info { 
+  display: inline-block;
+  float:left;
+ 
+ padding:30px;
+}
+
+
+div.react-datepicker__input-container{
+  /* top: 0px;
+  border:solid;
+  color: blue;
+  position: absolute;
+  right: 0px; */
+  /* display: inline-block;
+  float:top;
+} */ 

@@ -15,14 +15,12 @@ function mainPage() {
 
   return (
   
-     <div className="container">
-       <div className="logo">
+     
 
+       <div> 
+       <WereldMap/>
        </div>
-       {/* <div><Graph/></div>        */}
-       <div className="content"><WereldMap/></div>
-       <div className="footer">Covid Map</div>
-     </div>
+    
      
   );
 }

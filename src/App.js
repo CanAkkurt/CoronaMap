@@ -1,7 +1,11 @@
-import React, { useEffect } from "react" ;
+
 import './App.css';
 import MainPage from "./pages/mainPage.js";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from "./components/Navbar";
+import SignUp from "./pages/SignUp";
+import Footer from './components/footer';
 // import Graph from "./belgium/dataVisualisation"
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -13,22 +17,18 @@ import axios from "axios";
 
 function App() {
   
-//   useEffect(() => {
-// const getCountries = async () => {
-//   const response = await axios.get('http://localhost:3000/api/countries');
-//   console.log(response);
-// };
-// getCountries();
-// }, []);
-  
-  
-  
+
   
   return (
-    <div>
-         
-        <MainPage/>
-    </div>
+    <Router>
+      <Navbar/> 
+      <Routes>
+        <Route path='/' element={<MainPage/>}/>
+        <Route path='/sign-up' element={<SignUp/>} />
+      </Routes>
+     <Footer />
+    </Router>
+    
   );
 }
 

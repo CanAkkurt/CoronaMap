@@ -1,126 +1,128 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import WorldMap from 'react-svg-worldmap';
 import axios from 'axios';
-import './map.css';
+import './worldMap.css';
+import moment from 'moment';
+import Graph from './dataVisualisation.js';
+import { useCallback } from 'react'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-
-
-var data = [
-  
-];
-const dataTemp = [];
-
-// const getCountries = async () => {
-//   var response = 
-  
-//   var data = response.data.data
-//   return data;
-// };
-
-
-// const getCases  = async (countryId) => {
-//   var response = await axios.get(`http://localhost:3000/api/countries/${countryId}`);
-//   return response;
-// };
-
-
-
-
+const dataMap = [];
 
 
 
 
 
 function WereldMap() {
+    
+
+  const [startDate, setStartDate] = useState(new Date(2021,11,9));
+   const [dataTest, setdataTest] = React.useState([]); 
+  const [dataCase,setDataCase] = React.useState([]);
   
-     const [clickedLocation, setClickedLocation] = React.useState();
+  // const [isLoading,setLoading] = React.useState();
+
+  const [clickedLocation, setClickedLocation] = React.useState();
   const [clickedAmount, setClickedAmount] = React.useState();
   const [nieuwCases, setNieuwCases] = React.useState();
+  
+  
+   
+   const Example = () => {
+     
+    return (
+      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+    );
+  };
 
+  
+  
+     
+    
+  
+     useEffect(()=> {
+      dataMap.length = 0;
+  
+     
+    
+ 
+
+      // var dateTest = startDate.getFullYear()+"-"+(startDate.getMonth()+1)+"-"+startDate.getDate();
+      var dateTest = moment(startDate).format('YYYY-MM-DD')
+      
+      
+      
+      axios.get('http://localhost:3000/api/countries').then(response =>setdataTest(response.data.data));
+      
+      axios.get(`http://localhost:3000/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
+      
+
+    },[startDate]);
+    
+   
+
+  if(dataMap.length === 0){
+     dataTest.forEach(element => {
+      var id = element.id-1;
+       if(typeof dataCase[id] === 'undefined') {
+         
+       }else {
+         var casesValue = dataCase[id].new_cases;
+         dataMap.push({country:element.code,value:casesValue})
+       }
+      
+    });
+  
+   }
+
+ 
+
+    
+    
+
+
+
+    
+   
+
+    
+  
+
+  
+
+  // laat data zien wereldmap wanneer er op een land geklikt wordt
   const handleLocationClick = (event) => {
+    
     const cLocation = event.countryName;
     const amount = event.countryValue;
     const cases = event.countryAantal;
     setClickedLocation(cLocation);
     setClickedAmount(amount)
     setNieuwCases(cases)
-    console.log("clickedLocationId",event);
-    console.log("aantal",event.countryAantal)
-    //window.open(this.links[clickedLocationId], "_blank");
+   
   };
 
-   
-  //  getCountries.data.data.forEach(element => {
-  //   console.log(element.name);
-  //   var code = element.code
-  //   // var countryId = element.id
-    
-  // data.push({country: code,value:1000});
-      
-
-  // });
-    // console.log("data");
-    // console.log(getCountries.then());
-    // console.log("stop");
-      
-    
-      async function fetchDataCountry(countryId) {
-         const respone  = await axios.get(`http://localhost:3000/api/cases/${countryId}`);
-         return  respone;
-        
-        
-      }
-     
-
- useEffect(() => {
-   async function fetchData() {
-     const response = await axios.get('http://localhost:3000/api/countries');
-     
-     
-     for ( const element of response.data.data){
-      var countryId = element.id 
-      var countryIso = element.code
-      //  value:await (await fetchDataCountry(countryId)).data[0].new_cases
-      dataTemp.push({country:countryIso,value:100000})};
-      // console.log(await (await fetchDataCountry(countryId)).data[0].new_cases);
-    
-     data = dataTemp;
-     console.log("wait");
-     console.log(data);
-      
-     
-   }
-   fetchData();
-  //  var map = document.createElement("WorldMap");
- },[])
-
-
-
-
-  
-    
-
-
-
-
-
-
-
-
-
-  
-
-  // const width = Math.min(window.innerHeight, window.innerWidth) * 0.75;
  
    
+
+
+
 
   
   return (
     
     <div className = "container"> 
-     <div className="map"><WorldMap  title="covid map" size="xxl" color="red"   data={data} onClickFunction={handleLocationClick}  richInteraction="true" /></div>
-  
+     <div className="map">
+     <WorldMap data={dataMap}  size="responsive" color="red"    onClickFunction={handleLocationClick}  richInteraction="true" />
+     <Example/>
+     </div>
+     <div className="info">
+        <Graph/>
+     </div>
+
+
      <div className="info">
           <p>Clicked location: {clickedLocation}</p>
           <p>aantal covid: {clickedAmount}</p>
