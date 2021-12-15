@@ -28,16 +28,35 @@
 
 .navbar-logo {
   color: #fff;
+  font-weight: bold;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
+
 }
 
+
+
 .navbar-icon {
-  margin-right: 0.5rem;
+  animation-name: rotate;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+}
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+.navbar-icon:hover{
+  color: aquamarine;
+  transform: scale(1.4);
 }
 
 .nav-menu {
@@ -75,7 +94,7 @@
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 950px) {
   .NavbarItems {
     position: relative;
   }
@@ -87,7 +106,7 @@
     height: 90vh;
     position: absolute;
     top: 80px;
-    left: -100%;
+    left: -120%;
     opacity: 1;
     transition: all 0.5s ease;
   }

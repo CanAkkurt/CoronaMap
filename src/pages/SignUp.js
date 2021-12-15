@@ -1,13 +1,32 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import './SignUp.css';
+import FormSignup from '../components/FormSignup.js';
+import FormSuccess from '../components/FormSucces.js';
 
+const SignUp= () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-function SignUp() {
+  function submitForm() {
+    setIsSubmitted(true);
+  }
+  
   return (
     <>
-      <div>hello</div>
+      <div className='form-container'>
+        <span className='close-btn'>×</span>
+        <div className='form-content-left'>
+          <img className='form-img' src='img/img-2.svg' alt='spaceship' />
+        </div>
+        {!isSubmitted ? (
+          <FormSignup submitForm={submitForm} />
+        ) : (
+          <FormSuccess />
+        )}
+      </div>
     </>
   );
-}
+};
+
 
 export default SignUp;

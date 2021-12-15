@@ -3,6 +3,7 @@ import './App.css';
 import MainPage from "./pages/mainPage.js";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import WereldMap from "./dataVis/worldMap.js";
 import Navbar from "./components/Navbar";
 import SignUp from "./pages/SignUp";
 import Footer from './components/footer';
@@ -23,7 +24,7 @@ function App() {
     <Router>
       <Navbar/> 
       <Routes>
-        <Route path='/' element={<MainPage/>}/>
+        <Route path='/' element={<WereldMap/>}/>
         <Route path='/sign-up' element={<SignUp/>} />
       </Routes>
      <Footer />

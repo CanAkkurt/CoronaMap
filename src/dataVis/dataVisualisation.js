@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactApexChart from 'react-apexcharts'
 
-function Graph() {
+function Graph(data) {
   const series = [
     {
       name: "Cases",
@@ -70,7 +70,7 @@ function Graph() {
         series={series}
         type="area"
         height={200}
-        width={400}
+        
       />
       <br />
       <ReactApexChart
@@ -78,6 +78,7 @@ function Graph() {
         series={series}
         type="bar"
         height={200}
+        
       />
     </div>
   );

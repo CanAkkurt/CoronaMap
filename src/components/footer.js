@@ -9,14 +9,14 @@ import {
   FaTwitter,
   FaLinkedin
 } from 'react-icons/fa';
-import { MdFingerprint } from 'react-icons/md';
+import { MdCoronavirus } from 'react-icons/md';
 
 function Footer() {
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          Join our exclusive membership to receive the latest news and trends
+          If u want weekly covid news!
         </p>
         <p className='footer-subscription-text'>
           You can unsubscribe at any time.
@@ -72,11 +72,11 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              <MdFingerprint className='navbar-icon' />
-              LAVISH
+              <MdCoronavirus className='navbar-icon' />
+              Corona Map
             </Link>
           </div>
-          <small className='website-rights'>LAVISH © 2020</small>
+          <small className='website-rights'>Cpex © 2020</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link'

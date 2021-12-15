@@ -9,7 +9,9 @@ import { useCallback } from 'react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const dataMap = [];
+  
+
+
 
 
 
@@ -21,13 +23,16 @@ function WereldMap() {
   const [startDate, setStartDate] = useState(new Date(2021,11,9));
    const [dataTest, setdataTest] = React.useState([]); 
   const [dataCase,setDataCase] = React.useState([]);
+  const [dataMap,setDataMap] = React.useState([]);
   
   // const [isLoading,setLoading] = React.useState();
 
   const [clickedLocation, setClickedLocation] = React.useState();
   const [clickedAmount, setClickedAmount] = React.useState();
   const [nieuwCases, setNieuwCases] = React.useState();
-  
+  const [totalCases, setTotalCases] = React.useState();
+  const [totalDeaths, setTotalDeaths] = React.useState();
+  const [newDeaths, setNewDeaths] = React.useState();
   
    
    const Example = () => {
@@ -60,9 +65,11 @@ function WereldMap() {
       
 
     },[startDate]);
-    
+  
+  
    
-
+  
+   
   if(dataMap.length === 0){
      dataTest.forEach(element => {
       var id = element.id-1;
@@ -70,15 +77,22 @@ function WereldMap() {
          
        }else {
          var casesValue = dataCase[id].new_cases;
-         dataMap.push({country:element.code,value:casesValue})
+
+         var newDeaths = parseInt(dataCase[id].new_deaths)
+         var totalCases = dataCase[id].total_cases
+         var totalDeaths = dataCase[id].total_deaths
+
+        //  var vaccinations = dataCase[id].
+         console.log(newDeaths);
+         dataMap.push({country:element.code,value:casesValue,newDeaths:newDeaths,totalCases:totalCases,totalDeaths:totalDeaths})
        }
       
     });
   
    }
 
- 
-
+ console.log(dataCase);
+  // console.log(dataMap);
     
     
 
@@ -97,40 +111,70 @@ function WereldMap() {
     
     const cLocation = event.countryName;
     const amount = event.countryValue;
-    const cases = event.countryAantal;
+    const totalDeaths = event.totalDeaths;
+    const newDeaths = event.newDeaths;
+    const totalCases = event.totalCases;
+
+
+    console.log(event);
     setClickedLocation(cLocation);
     setClickedAmount(amount)
-    setNieuwCases(cases)
+    setNewDeaths(newDeaths);
+    setTotalDeaths(totalDeaths);
+    setTotalCases(totalCases)
    
   };
 
  
    
-
-
+  
+  const width = Math.min(window.innerHeight, window.innerWidth) * 0.75;
 
 
   
   return (
     
     <div className = "container"> 
-     <div className="map">
-     <WorldMap data={dataMap}  size="responsive" color="red"    onClickFunction={handleLocationClick}  richInteraction="true" />
-     <Example/>
+    <div className="upperBody">
+    <div className="datePicker">
+      <div className="space"></div>
+    <Example/>
+    </div>
+     <div className="mapInfoContainer">
+        <div className="mapDiv">
+          <WorldMap data={dataMap}  size="responsive" color="#c90000"   onClickFunction={handleLocationClick}  richInteraction="true" />
+        </div>
+        <div className="info">
+          <h3>Country: {clickedLocation}</h3>
+          <h3>covid cases: {clickedAmount}</h3>
+          <h3>total cases: {totalCases}</h3>
+          <h3>new deaths: {newDeaths}</h3>
+          <h3>total deaths: {totalDeaths}</h3>
+        </div>
+     
      </div>
-     <div className="info">
+     </div>
+
+
+
+      <div className="dataVis">
         <Graph/>
+    
      </div>
+         
 
 
-     <div className="info">
-          <p>Clicked location: {clickedLocation}</p>
-          <p>aantal covid: {clickedAmount}</p>
-          <p>aantal nieuwe covid: {nieuwCases}</p>
-     </div>
+
     </div>
    
   );
 }
 
+
+
+
 export default WereldMap;
+
+
+
+

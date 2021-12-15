@@ -1,20 +1,78 @@
 
-div.container{
-  padding:50px;
-  padding-top:50px;
-  margin:0;
- 
+
+
+
+
+
+
+
+
+
+.upperBody{
+  padding-top: 20px;
+}
+.react-datepicker-wrapper{
+
+  outline: none;
+  margin-left: auto;
+  display: flex;
+  flex: 4;
+  justify-content: end;
+} 
+.react-datepicker__input-container input {
+  font-size: 20px;
+  font-family: 'Roboto';
+  text-align: center;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: #1b2d51;
+  background-color: white;
+  outline: none;
 }
 
-div.map {
-  border:solid;
-  left:10px;
-  float:left;
-  position:relative;
+.datePicker {
+  margin: 20px 0px 10px 0px;
+  display: flex;
+
+}
+.space{
+  display: flex;
+  flex: 1;
+
+}
+
+figure.worldmap__figure-container{
+  border-radius:10px;
+}
+div.mapInfoContainer {
+  /* border:solid; */
+  
+
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  zIndex: '1';
+  margin-left:auto;
+margin-right:0;
+
+
+
+
+/* position: relative; */
+
+  
+}
+
+div.date {
+  display: flex;
+  justify-content: top;
+  align-items: top;
+  zIndex: '2';
 }
 
 div.dataVis {
-  border:solid;
+  
 }
 
 /* div.map {
@@ -28,22 +86,33 @@ div.dataVis {
   
 } */
 
+  @media only screen and (max-width: 380px) {
 
+   }
+   @media only screen and (max-width: 650px) {
+    .mapInfoContainer{
+      flex-direction: column;
+      align-items: center;
+    }
+    .info{
+      margin-top: 15px;
+    }
+   }
 
-/* div.info { 
-  display: inline-block;
-  float:left;
+.mapDiv{
+  flex: 3;
+  border-radius:10px;
+   -webkit-box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8); 
+   box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8);
  
- padding:30px;
 }
-
-
-div.react-datepicker__input-container{
-  /* top: 0px;
-  border:solid;
-  color: blue;
-  position: absolute;
-  right: 0px; */
-  /* display: inline-block;
-  float:top;
-} */ 
+div.info { 
+  flex: 2;
+  border-radius:10px;
+   -webkit-box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8); 
+   box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8);
+   width: auto;
+   height:40%;
+   padding:20px;
+   margin-left: 40px;
+}
