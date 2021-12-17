@@ -1,70 +1,44 @@
 
 import React, { useEffect, useState } from 'react';
-import WorldMap from 'react-svg-worldmap';
+import WorldMap from '../customizedLibrary/react-svg-worldmap';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
 import Graph from './dataVisualisation.js';
-import { useCallback } from 'react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
-  
-
-
-
-
+import Country from "flagit";
 
 
 
 function WereldMap() {
     
-
+  const dataMap = []
   const [startDate, setStartDate] = useState(new Date(2021,11,9));
-   const [dataTest, setdataTest] = React.useState([]); 
+  const [dataTest, setdataTest] = React.useState([]); 
   const [dataCase,setDataCase] = React.useState([]);
-  const [dataMap,setDataMap] = React.useState([]);
-  
-  // const [isLoading,setLoading] = React.useState();
-
   const [clickedLocation, setClickedLocation] = React.useState();
   const [clickedAmount, setClickedAmount] = React.useState();
-  const [nieuwCases, setNieuwCases] = React.useState();
   const [totalCases, setTotalCases] = React.useState();
   const [totalDeaths, setTotalDeaths] = React.useState();
   const [newDeaths, setNewDeaths] = React.useState();
+  const [mapIso,setMapIso] = React.useState("");
   
    
-   const Example = () => {
-     
+  const Example = () => {
     return (
       <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
     );
   };
 
   
-  
-     
-    
-  
-     useEffect(()=> {
-      dataMap.length = 0;
-  
-     
-    
- 
-
-      // var dateTest = startDate.getFullYear()+"-"+(startDate.getMonth()+1)+"-"+startDate.getDate();
-      var dateTest = moment(startDate).format('YYYY-MM-DD')
+  useEffect(()=> {
+    dataMap.length = 0;
+    var dateTest = moment(startDate).format('YYYY-MM-DD')
+    axios.get('http://localhost:3000/api/countries').then(response =>setdataTest(response.data.data));
+    axios.get(`http://localhost:3000/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
       
-      
-      
-      axios.get('http://localhost:3000/api/countries').then(response =>setdataTest(response.data.data));
-      
-      axios.get(`http://localhost:3000/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
-      
-
-    },[startDate]);
+  },[startDate]);
   
   
    
@@ -74,25 +48,20 @@ function WereldMap() {
      dataTest.forEach(element => {
       var id = element.id-1;
        if(typeof dataCase[id] === 'undefined') {
-         
        }else {
          var casesValue = dataCase[id].new_cases;
-
-         var newDeaths = parseInt(dataCase[id].new_deaths)
-         var totalCases = dataCase[id].total_cases
-         var totalDeaths = dataCase[id].total_deaths
-
-        //  var vaccinations = dataCase[id].
-         console.log(newDeaths);
-         dataMap.push({country:element.code,value:casesValue,newDeaths:newDeaths,totalCases:totalCases,totalDeaths:totalDeaths})
+         var newDeaths = parseInt(dataCase[id].new_deaths);
+         var totalCases = dataCase[id].total_cases;
+         var totalDeath = parseInt(dataCase[id].total_deaths);
+         dataMap.push({country:element.code,value:casesValue,newDeaths:newDeaths,totalCases:totalCases,totalDeaths:totalDeath})
        }
       
     });
   
    }
 
- console.log(dataCase);
-  // console.log(dataMap);
+ 
+ 
     
     
 
@@ -109,28 +78,23 @@ function WereldMap() {
   // laat data zien wereldmap wanneer er op een land geklikt wordt
   const handleLocationClick = (event) => {
     
-    const cLocation = event.countryName;
+    
     const amount = event.countryValue;
     const totalDeaths = event.totalDeaths;
     const newDeaths = event.newDeaths;
     const totalCases = event.totalCases;
-
-
-    console.log(event);
-    setClickedLocation(cLocation);
+    const iso = event.countryCode
+    setClickedLocation(event.countryName);
     setClickedAmount(amount)
     setNewDeaths(newDeaths);
     setTotalDeaths(totalDeaths);
     setTotalCases(totalCases)
+    setMapIso(iso)
+    
    
   };
-
- 
-   
   
-  const width = Math.min(window.innerHeight, window.innerWidth) * 0.75;
-
-
+ 
   
   return (
     
@@ -150,7 +114,12 @@ function WereldMap() {
           <h3>total cases: {totalCases}</h3>
           <h3>new deaths: {newDeaths}</h3>
           <h3>total deaths: {totalDeaths}</h3>
+          <Country countryShort={mapIso} size="xxl" />
         </div>
+        
+         
+        
+        
      
      </div>
      </div>

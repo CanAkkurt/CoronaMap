@@ -107,6 +107,11 @@ div.dataVis {
  
 }
 div.info { 
+  font-size: 20px;
+  font-family: 'Roboto';
+  text-align: left;
+  color:white;
+  background-color:black;
   flex: 2;
   border-radius:10px;
    -webkit-box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8); 

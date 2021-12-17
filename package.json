@@ -12,6 +12,8 @@
     "add": "^2.0.6",
     "apexcharts": "^3.31.0",
     "axios": "^0.24.0",
+    "country-flag-icons": "^1.4.19",
+    "flagit": "^2.0.3",
     "jquery": "^3.6.0",
     "momen": "^0.0.1-security",
     "moment": "^2.29.1",

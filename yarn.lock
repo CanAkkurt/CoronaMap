@@ -3628,6 +3628,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+country-flag-icons@^1.4.19:
+  version "1.4.19"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.4.19.tgz#410879a4a1b06ab28d4fc56261b391f221eba957"
+  integrity sha512-1hmXFJ4UURQt0Ex0990B7oOL4n9KLpT9NOSEmZoYh+/5DQ7/pikyqaptqCLUFFv/bYHyvYFeo0fqV82XxU6VOA==
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.4.tgz#d6e7f4bffa66736085a0762fd3a632684dabcc4e"
@@ -5090,6 +5095,11 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
+
+flagit@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/flagit/-/flagit-2.0.3.tgz#14b3eff3cea5c069f64fa4280561507f2b08540c"
+  integrity sha512-1tDTo05Z94hhG/7h+Wd4DV/iY3/hz7hzev6tJTnUD96lE5GkwM1LyU9R6d0KiM9rHaUxueaStvg9MwYe/xvajA==
 
 flat-cache@^3.0.4:
   version "3.0.4"
