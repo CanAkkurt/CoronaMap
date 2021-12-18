@@ -3,6 +3,7 @@ import './HeroSection.css';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
+
 function HeroSection({
   lightBg,
   topLine,
@@ -13,7 +14,9 @@ function HeroSection({
   buttonLabel,
   img,
   alt,
-  imgStart
+  imgStart,
+  
+  
 }) {
   return (
     <>

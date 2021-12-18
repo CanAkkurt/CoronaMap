@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
 
-import { useRegister } from '../contexts/AuthProvider';
+import { useLogin } from '../contexts/AuthProvider';
 
 
-const useForm = (callback, validate) => {
+const useFormLogIn = (callback, validate) => {
    
-  const register = useRegister();
+  const LogIn = useLogin();
   const [values, setValues] = useState({
-    username: '',
     email: '',
-    password: '',
-    password2: ''
+    password: ''
+    
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,13 +34,9 @@ const useForm = (callback, validate) => {
   
   
   
-  
-  
   function errorPromise(value) {
-    console.log(value);
     if (value === false) {
-        setErrors({email:'email is already in use'})
-       
+        setErrors({email:'email or password does not match'})
     } else {
        callback()
        
@@ -51,31 +46,17 @@ const useForm = (callback, validate) => {
   
   
   
-  
-  
-  
-  
   useEffect(
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        const data ={
-          name:values.username,
-          email:values.email,
-          password:values.password
-      }
-        
         try {
-          register(data).then(errorPromise);
+          LogIn(values.email,values.password).then(errorPromise);
         }
         catch(err){
           console.log("error");  
         }
-      
-
-
-
-
       }
+      ;
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [errors]
@@ -84,4 +65,4 @@ const useForm = (callback, validate) => {
   return { handleChange, handleSubmit, values, errors };
 };
 
-export default useForm;
+export default useFormLogIn;

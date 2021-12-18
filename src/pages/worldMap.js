@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
-import WorldMap from '../customizedLibrary/react-svg-worldmap';
+import WorldMap from '../customizedLibrary/react-svg-worldmap/dist';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
-import Graph from './dataVisualisation.js';
+import Graph from '../dataVis/dataVisualisation.js';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Country from "flagit";
-
+import * as cases from '../api/cases.js';
 
 
 function WereldMap() {
@@ -23,6 +23,7 @@ function WereldMap() {
   const [totalDeaths, setTotalDeaths] = React.useState();
   const [newDeaths, setNewDeaths] = React.useState();
   const [mapIso,setMapIso] = React.useState("");
+  const [data7,setData7] = React.useState([]);
   
    
   const Example = () => {
@@ -31,11 +32,23 @@ function WereldMap() {
     );
   };
 
+
+  
+ 
+
+  useEffect(()=>{
+      cases.casesBetween("2021-11-02","2021-11-09").then(function(result){
+         setData7(result.data)
+    
+     })
+     axios.get('http://localhost:3000/api/countries').then(response =>setdataTest(response.data.data));
+  },[])
+  
   
   useEffect(()=> {
     dataMap.length = 0;
     var dateTest = moment(startDate).format('YYYY-MM-DD')
-    axios.get('http://localhost:3000/api/countries').then(response =>setdataTest(response.data.data));
+    
     axios.get(`http://localhost:3000/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
       
   },[startDate]);
@@ -114,7 +127,9 @@ function WereldMap() {
           <h3>total cases: {totalCases}</h3>
           <h3>new deaths: {newDeaths}</h3>
           <h3>total deaths: {totalDeaths}</h3>
+          <div classname="backgroundFlag">
           <Country countryShort={mapIso} size="xxl" />
+          </div>
         </div>
         
          
@@ -127,7 +142,7 @@ function WereldMap() {
 
 
       <div className="dataVis">
-        <Graph/>
+        <Graph data={data7}/>
     
      </div>
          

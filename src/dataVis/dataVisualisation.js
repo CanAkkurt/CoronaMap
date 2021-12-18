@@ -1,22 +1,63 @@
 import React from 'react';
 
+import * as cases from '../api/cases.js';
+
 import ReactApexChart from 'react-apexcharts'
+import { useEffect } from 'react';
 
 function Graph(data) {
-  const series = [
+  
+  const [dataCases,setDataCases] = React.useState([]);
+
+
+  
+  useEffect(()=>{
+    if (data.data[0] !==undefined){
+       console.log("data vis----------------------");
+       const dataCase = []
+       
+       for(let i = data.data.length-1; i > 0;i--){
+        
+        dataCase.push(data.data[i].total_cases)
+        
+        
+       }
+       
+       setDataCases(dataCase)
+       
+    
+    
+    
+      }
+    
+    
+  
+
+
+  },[data])
+   
+  
+   console.log(dataCases);
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   const series = [
     {
       name: "Cases",
-      data: [
-        555,
-        12038,
-        69030,
-        88369,
-        167466,
-        932638,
-        2055423,
-        3343777,
-        3845718,
-      ],
+      data: dataCases,
     },
     {
       name: "Recovered",

@@ -106,12 +106,24 @@ div.dataVis {
    box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8);
  
 }
+@media screen and (max-width: 991px) {
+  .container {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+.backgroundFlag {
+  background-color:black;
+
+}
+
 div.info { 
   font-size: 20px;
   font-family: 'Roboto';
   text-align: left;
-  color:white;
-  background-color:black;
+  color:black;
+  background-color:white;
   flex: 2;
   border-radius:10px;
    -webkit-box-shadow: 7px 6px 19px -5px rgba(0,0,0,0.8); 
@@ -120,4 +132,11 @@ div.info {
    height:40%;
    padding:20px;
    margin-left: 40px;
+}
+
+
+.flagit {
+ 
+  width: 16px;
+    height: 16px
 }
