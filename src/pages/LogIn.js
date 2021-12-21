@@ -4,6 +4,7 @@ import FormLogIn from '../components/FormLogIn.js';
 
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router';
+import Corona from '../images/Corona.png'
 
 const LogIn= () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -24,7 +25,7 @@ const LogIn= () => {
           </Link>
         
         <div className='form-content-left'>
-          <img className='form-img' src='/src/images/corona.jpg' alt='coronaImage' />
+          <img className='form-img' src={Corona} alt='coronaImage' />
         </div>
         {!isSubmitted ? (
           <FormLogIn submitForm={submitForm} />

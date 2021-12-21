@@ -4,7 +4,7 @@ import './SignUp.css';
 import FormSignup from '../components/FormSignup.js';
 import FormSuccess from '../components/FormSucces.js';
 import { Link } from 'react-router-dom';
-
+import Corona from '../images/Corona.png'
 
 const SignUp= () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -13,8 +13,6 @@ const SignUp= () => {
     setIsSubmitted(true);
 
   }
-
-
   
   return (
     <>
@@ -25,7 +23,7 @@ const SignUp= () => {
           </Link>
         
         <div className='form-content-left'>
-          <img className='form-img' src='/src/images/corona.jpg' alt='coronaImage' />
+          <img className='form-img' src={Corona} alt='coronaImage' />
         </div>
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />

@@ -15,6 +15,7 @@ function HeroSection({
   img,
   alt,
   imgStart,
+  linkButton,
   
   
 }) {
@@ -46,11 +47,11 @@ function HeroSection({
                 >
                   {description}
                 </p>
-                <Link to='/sign-up'>
+                <a target="_new"  href={linkButton}> 
                   <Button buttonSize='btn--wide' buttonColor='blue'>
                     {buttonLabel}
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
             <div className='col'>

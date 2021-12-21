@@ -30,4 +30,14 @@ export const getUserById = async (id) => {
     data
   } = await axios.get(`users/${id}`);
   return data;
-}
+};
+
+
+export const getAllUsers = async() => {
+  const {
+    data
+  } = await axios.get('users/');
+  return data;
+};
+
+

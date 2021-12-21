@@ -30,7 +30,7 @@ function App() {
         <Route path='/sign-up' element={<SignUp/>} />
         <Route path='/info' element={<Info/>} />
         <Route path='/log-in' element={<LogIn/>} />
-        <Route exact path='/user-info' element={<PrivateRoute role="admin"/>}>  
+        <Route exact path='/user-info' element={<PrivateRoute role="user"/>}>  
           <Route exact path='/user-info' element={<UserInfo/>}/>
         </Route>
         
