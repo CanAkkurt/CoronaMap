@@ -10,8 +10,25 @@ import {
   FaLinkedin
 } from 'react-icons/fa';
 import { MdCoronavirus } from 'react-icons/md';
+import emailjs from 'emailjs-com'
+
+import sendEmail from '../components/emailSender.js';
+
 
 function Footer() {
+
+
+
+
+ 
+
+
+
+
+
+
+
+
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
@@ -22,7 +39,7 @@ function Footer() {
           You can unsubscribe at any time.
         </p>
         <div className='input-areas'>
-          <form>
+          <form onSubmit={sendEmail}>
             <input
               className='footer-input'
               name='email'

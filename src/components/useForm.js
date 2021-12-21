@@ -38,7 +38,7 @@ const useForm = (callback, validate) => {
   
   
   function errorPromise(value) {
-    console.log(value);
+   
     if (value === false) {
         setErrors({email:'email is already in use'})
        

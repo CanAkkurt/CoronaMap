@@ -145,7 +145,7 @@ export const AuthProvider = ({
 
   const hasRole = useCallback((role) => {
     if (!user) return false;
-    console.log(role);
+    
     return user.roles.includes(role);
   }, [user]);
    

@@ -5,6 +5,9 @@ import './Navbar.css';
 import { MdCoronavirus } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import {useLogout ,useSession } from '../contexts/AuthProvider';
+import { useCallback } from 'react';
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -12,6 +15,25 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+
+
+  const { isAuthed,user } = useSession();
+   
+   const logOut = useLogout();
+   
+   
+   
+  
+
+   
+  //  const handleLogOut = useCallback(async () => {
+  //   await 
+   
+    
+    
+  // }, [logOut]);
+
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -21,7 +43,16 @@ function Navbar() {
     }
   };
 
+  
+
+   const onClick = () =>{
+    
+     logOut();
+    //  closeMobileMenu();
+   }
+
   useEffect(() => {
+
     showButton();
     window.addEventListener('resize', showButton,false);
     return () => {
@@ -66,6 +97,11 @@ function Navbar() {
                   info
                 </Link>
               </li>
+              
+              
+              
+              
+              {!isAuthed ? (
               <li className='nav-btn'>
                 {button ? (
                   <Link to='/sign-up' className='btn-link'>
@@ -83,11 +119,36 @@ function Navbar() {
                   </Link>
                 )}
               </li>
+              ):(<li></li>)}
 
-              <li className='nav-btn'>
+
+
+
+
+              {isAuthed ? (    <li className='nav-btn'>
                 {button ? (
                   <Link to='/log-in' className='btn-link'>
-                    <Button buttonStyle='btn--outline'>LOG IN</Button>
+                    <Button buttonStyle='btn--outline'
+                    
+                    onClick={onClick}
+                    > log Out</Button>
+                    
+                  </Link>
+                ) : (
+                  <Link to='/' className='btn-link'>
+                    <Button
+                      buttonStyle='btn--outline'
+                      buttonSize='btn--mobile'
+                      onClick={closeMobileMenu}
+                    >
+                      Log out
+                    </Button>
+                  </Link>
+                )}
+              </li>):(   <li className='nav-btn'>
+                {button ? (
+                  <Link to='/log-in' className='btn-link'>
+                    <Button buttonStyle='btn--outline'>Log in</Button>
                   </Link>
                 ) : (
                   <Link to='/log-in' className='btn-link'>
@@ -96,11 +157,14 @@ function Navbar() {
                       buttonSize='btn--mobile'
                       onClick={closeMobileMenu}
                     >
-                      LOG IN
+                      Log In
                     </Button>
                   </Link>
                 )}
-              </li>
+              </li>)}
+
+          
+              
             </ul>
           </div>
         </nav>

@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection.js';
 
-
+import {useLogout ,useSession } from '../contexts/AuthProvider.jsx';
 
 
 
@@ -11,6 +11,8 @@ import HeroSection from '../components/HeroSection.js';
 
 
 function Info() {
+  useLogout();
+  console.log("logOut");
   return (
     <>
     
@@ -35,7 +37,7 @@ function Info() {
   description:
     'asdasdasdasdasd',
   buttonLabel: 'For more info',
-  imgStart: 'row-reverse',
+  imgStart: 'we',
   img: '',
   alt: 'Vault'}} />
     

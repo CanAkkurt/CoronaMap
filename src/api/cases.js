@@ -16,12 +16,3 @@ export const casesBetween = async(date1,date2) => {
 
 
 
-export const login = async (email, password) => {
-  const {
-    data
-  } = await axios.post(`users/login`, {
-    email,
-    password
-  });
-  return data;
-};
