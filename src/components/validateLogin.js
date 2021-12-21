@@ -1,5 +1,9 @@
+
+import { useLogin } from '../contexts/AuthProvider';
 export default function validatelogin(values) {
+  
   let errors = {};
+  
 
   if (!values.email) {
     errors.email = 'Email required';
@@ -11,7 +15,8 @@ export default function validatelogin(values) {
   } else if (values.password.length < 6) {
     errors.password = 'Password needs to be 6 characters or more';
   }
-
+  
+  
 
   return errors;
 }

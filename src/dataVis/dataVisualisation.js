@@ -8,24 +8,32 @@ import { useEffect } from 'react';
 function Graph(data) {
   
   const [dataCases,setDataCases] = React.useState([]);
+  const [dataDate,setDataDate] = React.useState([]);
+  const [dataCasesTotal,setDataCasesTotal] = React.useState([]);
+  const [dataDeath,setDataDeath] = React.useState([]);
+  const [dataTotalDeath,setDataTotalDeath] = React.useState([]);
 
 
   
   useEffect(()=>{
     if (data.data[0] !==undefined){
-       console.log("data vis----------------------");
-       const dataCase = []
+       const dataCase = [], dataDate = [],dataCasesTotal = [],dataDeath = [],dataTotalDeath = [];
        
        for(let i = data.data.length-1; i > 0;i--){
         
-        dataCase.push(data.data[i].total_cases)
-        
+        dataCase.push(data.data[i].new_cases)
+        dataDate.push(data.data[i].date)
+        dataDeath.push(data.data[i].new_deaths)
+        dataTotalDeath.push(data.data[i].total_deaths)
+        dataCasesTotal.push(data.data[i].total_cases)
         
        }
        
-       setDataCases(dataCase)
-       
-    
+       setDataCases(dataCase);
+       setDataDate(dataDate);
+       setDataDeath(dataDeath);
+       setDataTotalDeath(dataTotalDeath)
+       setDataCasesTotal(dataCasesTotal)
     
     
       }
@@ -37,7 +45,7 @@ function Graph(data) {
   },[data])
    
   
-   console.log(dataCases);
+   
   
 
   
@@ -45,7 +53,7 @@ function Graph(data) {
   
   
   
-  
+   
   
   
   
@@ -56,17 +64,19 @@ function Graph(data) {
   
    const series = [
     {
-      name: "Cases",
+      name: "New Cases",
       data: dataCases,
     },
+   
     {
-      name: "Recovered",
-      data: [28, 284, 9394, 42710, 76026, 191853, 501538, 1029651, 1255481],
+      name: "New Deaths",
+      data: dataDeath,
     },
     {
-      name: "Deaths",
-      data: [17, 259, 1666, 2996, 6472, 49675, 140658, 238619, 269567],
+      name: "total Deaths",
+      data: dataTotalDeath,
     },
+  
   ];
   const options = {
     dataLabels: {
@@ -77,25 +87,16 @@ function Graph(data) {
     },
     xaxis: {
       type: "datetime",
-      categories: [
-        "1/22/20",
-        "2/1/20",
-        "2/15/20",
-        "3/1/20",
-        "3/15/20",
-        "4/1/20",
-        "4/15/20",
-        "5/1/20",
-        "5/7/20",
-      ],
+      categories: dataDate,
     },
     tooltip: {
       x: {
-        format: "dd/MM/yy",
+        format: "yy-MM-dd",
       },
     },
   };
-
+  
+   
   return (
     <div
       style={{
@@ -110,17 +111,17 @@ function Graph(data) {
         options={options}
         series={series}
         type="area"
-        height={200}
+        height={500}
         
       />
-      <br />
+      {/* <br />
       <ReactApexChart
-        options={options}
-        series={series}
-        type="bar"
+       options={options}
+        series={[44, 55, 41, 17, 15]}
+        type="donut"
         height={200}
         
-      />
+      /> */}
     </div>
   );
 }

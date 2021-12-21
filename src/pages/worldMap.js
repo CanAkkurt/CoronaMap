@@ -9,7 +9,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Country from "flagit";
 import * as cases from '../api/cases.js';
-
+import { login } from '../api/users';
+import GraphDonut from '../components/GraphDonut';
 
 function WereldMap() {
     
@@ -24,6 +25,7 @@ function WereldMap() {
   const [newDeaths, setNewDeaths] = React.useState();
   const [mapIso,setMapIso] = React.useState("");
   const [data7,setData7] = React.useState([]);
+  const [dataDonut,setDataDonut] = React.useState([100,20,30,40]);
   
    
   const Example = () => {
@@ -37,7 +39,7 @@ function WereldMap() {
  
 
   useEffect(()=>{
-      cases.casesBetween("2021-11-02","2021-11-09").then(function(result){
+      cases.casesBetween("2021-03-21","2021-12-10").then(function(result){
          setData7(result.data)
     
      })
@@ -97,6 +99,9 @@ function WereldMap() {
     const newDeaths = event.newDeaths;
     const totalCases = event.totalCases;
     const iso = event.countryCode
+    const dataDonut = [amount,newDeaths]
+    setDataDonut(dataDonut);
+    console.log(dataDonut);
     setClickedLocation(event.countryName);
     setClickedAmount(amount)
     setNewDeaths(newDeaths);
@@ -120,17 +125,18 @@ function WereldMap() {
      <div className="mapInfoContainer">
         <div className="mapDiv">
           <WorldMap data={dataMap}  size="responsive" color="#c90000"   onClickFunction={handleLocationClick}  richInteraction="true" />
-        </div>
+        </div><GraphDonut data={dataDonut}/>
         <div className="info">
           <h3>Country: {clickedLocation}</h3>
-          <h3>covid cases: {clickedAmount}</h3>
-          <h3>total cases: {totalCases}</h3>
+          <h3>New covid cases: {clickedAmount}</h3>
+          <h3>total covid cases: {totalCases}</h3>
           <h3>new deaths: {newDeaths}</h3>
           <h3>total deaths: {totalDeaths}</h3>
           <div classname="backgroundFlag">
           <Country countryShort={mapIso} size="xxl" />
           </div>
         </div>
+        
         
          
         

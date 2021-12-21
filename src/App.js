@@ -8,10 +8,8 @@ import SignUp from "./pages/SignUp";
 import Footer from './components/footer';
 import Info from './pages/info';
 import LogIn from './pages/LogIn';
-
-// import Graph from "./belgium/dataVisualisation"
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import UserInfo from './pages/userInfo';
+import PrivateRoute from "./components/PrivateRoute";
 
 
 
@@ -31,6 +29,12 @@ function App() {
         <Route path='/sign-up' element={<SignUp/>} />
         <Route path='/info' element={<Info/>} />
         <Route path='/log-in' element={<LogIn/>} />
+        <Route exact path='/user-info' element={<PrivateRoute role="admin"/>}>  
+          <Route exact path='/user-info' element={<UserInfo/>}/>
+        </Route>
+        
+          
+        
       </Routes>
      <Footer />
     </Router>
