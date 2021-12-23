@@ -9,7 +9,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Country from "flagit";
 import * as cases from '../api/cases.js';
-import { login } from '../api/users';
 import GraphDonut from '../components/GraphDonut';
 
 function WereldMap() {
@@ -74,22 +73,6 @@ function WereldMap() {
     });
   
    }
-
- 
- 
-    
-    
-
-
-
-    
-   
-
-    
-  
-
-  
-
   // laat data zien wereldmap wanneer er op een land geklikt wordt
   const handleLocationClick = (event) => {
     
@@ -101,7 +84,6 @@ function WereldMap() {
     const iso = event.countryCode
     const dataDonut = [amount,newDeaths]
     setDataDonut(dataDonut);
-    console.log(dataDonut);
     setClickedLocation(event.countryName);
     setClickedAmount(amount)
     setNewDeaths(newDeaths);
@@ -136,27 +118,12 @@ function WereldMap() {
           <Country countryShort={mapIso} size="xxl" />
           </div>
         </div>
-        
-        
-         
-        
-        
-     
      </div>
      </div>
-
-
-
       <div className="dataVis">
         <Graph data={data7}/>
-    
      </div>
-         
-
-
-
     </div>
-   
   );
 }
 

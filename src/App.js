@@ -34,9 +34,6 @@ function App() {
           <Route exact path='/user-info' element={<UserInfo/>}/>
         </Route>
         <Route path='/user' element={<UserPrivatePage/>}></Route>
-        
-          
-        
       </Routes>
      <Footer />
     </Router>

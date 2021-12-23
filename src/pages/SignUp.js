@@ -17,10 +17,9 @@ const SignUp= () => {
   return (
     <>
       <div className='form-container'>
-         
-         <Link to='/' className='link'>
-         <span className='close-btn'>×</span>     
-          </Link>
+        <Link to='/' className='link'>
+          <span className='close-btn'>×</span>     
+        </Link>
         
         <div className='form-content-left'>
           <img className='form-img' src={Corona} alt='coronaImage' />
