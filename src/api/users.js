@@ -41,3 +41,11 @@ export const getAllUsers = async() => {
 };
 
 
+export const  deleteUserById= async(id) => {
+  const {
+    data
+  } = await axios.delete(`users/${id}`);
+  return data;
+};
+
+
