@@ -1,21 +1,21 @@
 
 
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 
-
+import {sendMailNoEvent} from "../components/emailSender";
 import { useEffect } from "react";
 
 import './userInfo.css';
 
 
-import { getAllUsers,deleteUserById } from "../api/users";
+import { getAllUsers,deleteUserById ,updateByIdPermissions} from "../api/users";
 
 
 const UserInfo= () => {
 
-  const [displayHello, setDisplayHello] = useState(false);
+  const [displayRender, setDisplayRender] = useState(false);
   
-  const [dataTest,setDataTest] = useState([]);
+  
   const [contacts, setContacts] = useState([]);
   useEffect(() => {
     
@@ -26,8 +26,8 @@ const UserInfo= () => {
     
   // },[contacts]);
   console.log("displaychanged");
-  setDisplayHello(false)
-  },[displayHello])
+  setDisplayRender(false)
+  },[displayRender])
   
   
  
@@ -36,13 +36,23 @@ const UserInfo= () => {
   const handleClick = (data) =>{
      
     deleteUserById(data);
-    setDisplayHello(true)
+    setDisplayRender(true)
 
   }
   const handleClickPermission = (data) => {
-   
-    console.log(data)
+    const permission = {"permission":"admin"}
+    updateByIdPermissions(data,permission)
+    setDisplayRender(true)
   }
+
+  const sendMailOnClick= (data) => {
+    console.log(data)
+    sendMailNoEvent(data) 
+    
+  }
+
+
+
  
   return (
    
@@ -54,6 +64,7 @@ const UserInfo= () => {
          <th>Name</th>
          <th>email</th>
          <th>privileges</th>
+         <th></th>
          <th></th>
          <th></th>
         
@@ -77,8 +88,15 @@ const UserInfo= () => {
          
          </td>
          <td>
-          <button className="button" type="button" onClick={() => handleClickPermission(data.id)}>
-           Give admin permission
+         <button className="button" type="button" onClick={() => handleClickPermission(data.id)}>
+           give admin permission
+         </button>
+         
+         
+         </td>
+         <td>
+          <button className="button" type="button" onClick={() => sendMailOnClick(data.email)}>
+           send mail
          </button>
          </td>
          </tr>

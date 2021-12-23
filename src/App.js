@@ -10,7 +10,7 @@ import Info from './pages/info';
 import LogIn from './pages/LogIn';
 import UserInfo from './pages/userInfo';
 import PrivateRoute from "./components/PrivateRoute";
-
+import UserPrivatePage from './pages/userPrivatePage';
 
 
 
@@ -30,9 +30,10 @@ function App() {
         <Route path='/sign-up' element={<SignUp/>} />
         <Route path='/info' element={<Info/>} />
         <Route path='/log-in' element={<LogIn/>} />
-        <Route exact path='/user-info' element={<PrivateRoute role="user"/>}>  
+        <Route exact path='/user-info' element={<PrivateRoute role="admin"/>}>  
           <Route exact path='/user-info' element={<UserInfo/>}/>
         </Route>
+        <Route path='/user' element={<UserPrivatePage/>}></Route>
         
           
         

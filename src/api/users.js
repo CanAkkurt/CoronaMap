@@ -49,3 +49,23 @@ export const  deleteUserById= async(id) => {
 };
 
 
+export const  updateByIdPermissions= async(id,permission) => {
+  const {
+    data
+  } = await axios.put(`users/permissions/${id}`,permission);
+  return data;
+};
+
+
+
+export const  updateUserById= async(id) => {
+  const {
+    data
+  } = await axios.put(`users/${id}`);
+  return data;
+};
+
+
+
+
+

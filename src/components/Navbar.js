@@ -6,7 +6,7 @@ import { MdCoronavirus } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import {useLogout ,useSession } from '../contexts/AuthProvider';
-import { useCallback } from 'react';
+
 
 
 function Navbar() {
@@ -16,9 +16,7 @@ function Navbar() {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-
-
-  const { isAuthed,user } = useSession();
+  const { isAuthed } = useSession();
    
    const logOut = useLogout();
    
@@ -27,13 +25,6 @@ function Navbar() {
   
 
    
-  //  const handleLogOut = useCallback(async () => {
-  //   await 
-   
-    
-    
-  // }, [logOut]);
-
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -48,7 +39,7 @@ function Navbar() {
    const onClick = () =>{
     
      logOut();
-    //  closeMobileMenu();
+   
    }
 
   useEffect(() => {
@@ -79,6 +70,11 @@ function Navbar() {
                   Home
                 </Link>
               </li>
+              
+              
+              
+              
+              {isAuthed ?(
               <li className='nav-item'>
                 <Link
                   to='/user-info'
@@ -87,7 +83,12 @@ function Navbar() {
                 >
                   Settings
                 </Link>
-              </li>
+              </li>) : (
+               <li></li>
+              )}
+
+
+
               <li className='nav-item'>
                 <Link
                   to='/info'
@@ -97,7 +98,7 @@ function Navbar() {
                   info
                 </Link>
               </li>
-              
+                
               
               
               

@@ -12,6 +12,6 @@ export default function PrivateRoute({ children, role, ...rest }) {
     
   }, [isAuthed, role, hasRole]);
  
-  return (canShowRoute ? <Outlet /> : <Navigate to="/log-in"/>)
+  return (canShowRoute ? <Outlet /> : <Navigate to="/user"/>)
   
 }
