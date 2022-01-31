@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import Map from '../customizedLibrary/react-svg-worldmap/dist/index.js';
+import WorldMap from '../customizedLibrary/react-svg-worldmap/dist/index.js';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
@@ -107,7 +107,7 @@ function WereldMap() {
     </div>
      <div className="mapInfoContainer">
         <div className="mapDiv">
-          <Map data={dataMap}  size="responsive" color="#c90000"   onClickFunction={handleLocationClick}  richInteraction="true" />
+          <WorldMap data={dataMap}  size="responsive" color="#c90000"   onClickFunction={handleLocationClick}  richInteraction="true" />
         </div><GraphDonut data={dataDonut}/>
         <div className="info">
           <h3>Country: {clickedLocation}</h3>
