@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import WorldMap from '../customizedLibrary/react-svg-worldmap/dist';
+import {WorldMap} from '../customizedLibrary/react-svg-worldmap/dist';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
