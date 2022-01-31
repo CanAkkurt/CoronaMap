@@ -1,7 +1,7 @@
 
-
-
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WorldMap = void 0;
+const tslib_1 = require("tslib");
 const React = require("react");
 const d3_geo_1 = require("d3-geo");
 const countries_geo_1 = require("./countries.geo");
@@ -11,7 +11,7 @@ const draw_1 = require("./draw");
 const Frame_1 = require("./components/Frame");
 const Region_1 = require("./components/Region");
 const TextLabel_1 = require("./components/TextLabel");
-
+(0, tslib_1.__exportStar)(require("./types"), exports);
 function WorldMap(props) {
     const { data, title, valuePrefix = '', valueSuffix = '', color = constants_1.defaultColor, strokeOpacity = 0.2, backgroundColor = 'white', tooltipBgColor = 'black', tooltipTextColor = 'white', size = constants_1.defaultSize, frame = false, frameColor = 'black', borderColor = 'black', richInteraction = false, styleFunction = (0, constants_1.defaultCountryStyle)(borderColor, strokeOpacity), tooltipTextFunction = constants_1.defaultTooltip, onClickFunction, hrefFunction, textLabelFunction = () => [], } = props;
     const windowWidth = (0, utils_1.useWindowWidth)();
@@ -90,5 +90,5 @@ function WorldMap(props) {
             React.createElement("g", null, textLabelFunction(width).map((props, idx) => (React.createElement(TextLabel_1.default, Object.assign({}, props, { key: `text_${idx}` }))))),
             regionTooltips)));
 }
-export default WorldMap;
-
+exports.default = WorldMap;
+exports.WorldMap = WorldMap;
