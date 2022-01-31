@@ -1,7 +1,7 @@
 
 
 
-const tslib_1 = require("tslib");
+
 const React = require("react");
 const d3_geo_1 = require("d3-geo");
 const countries_geo_1 = require("./countries.geo");

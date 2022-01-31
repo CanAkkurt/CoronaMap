@@ -53,6 +53,7 @@ function WereldMap() {
     axios.get(`http://localhost:3000/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
       
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[startDate]);
   
   
