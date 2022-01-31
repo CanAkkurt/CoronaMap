@@ -91,4 +91,4 @@ function WorldMap(props) {
             regionTooltips)));
 }
 exports.default = WorldMap;
-exports.WorldMap = WorldMap;
+
