@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import {WorldMap} from '../customizedLibrary/react-svg-worldmap/dist';
+import WorldMap from '../customizedLibrary/react-svg-worldmap/dist/index.js';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
@@ -36,7 +36,7 @@ function WereldMap() {
 
   
  
-
+  
   useEffect(()=>{
       cases.casesBetween("2021-03-21","2021-12-10").then(function(result){
          setData7(result.data)
