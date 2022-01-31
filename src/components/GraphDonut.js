@@ -1,16 +1,9 @@
 import React from 'react';
-
-import * as cases from '../api/cases.js';
-
 import ReactApexChart from 'react-apexcharts'
-import { useEffect } from 'react';
+
 
 function GraphDonut(data) {
   
- 
-  
-  
-   const series = [{covid:34}, 55, 41, 17, 15];
    const labels = [ 'covid', 'E']
   const options = {
     dataLabels: {

@@ -1,7 +1,4 @@
 import React from 'react';
-
-import * as cases from '../api/cases.js';
-
 import ReactApexChart from 'react-apexcharts'
 import { useEffect } from 'react';
 
@@ -9,6 +6,7 @@ function Graph(data) {
   
   const [dataCases,setDataCases] = React.useState([]);
   const [dataDate,setDataDate] = React.useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [dataCasesTotal,setDataCasesTotal] = React.useState([]);
   const [dataDeath,setDataDeath] = React.useState([]);
   const [dataTotalDeath,setDataTotalDeath] = React.useState([]);
@@ -46,22 +44,7 @@ function Graph(data) {
    
   
    
-  
 
-  
-  
-  
-  
-  
-   
-  
-  
-  
-  
-  
-  
-  
-  
    const series = [
     {
       name: "New Cases",

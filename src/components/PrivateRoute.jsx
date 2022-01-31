@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Navigate, Outlet, Route, useLocation } from 'react-router'; //react router dom v6
+import { Navigate, Outlet } from 'react-router'; //react router dom v6
 import { useSession } from '../contexts/AuthProvider';
 
 export default function PrivateRoute({ children, role, ...rest }) {

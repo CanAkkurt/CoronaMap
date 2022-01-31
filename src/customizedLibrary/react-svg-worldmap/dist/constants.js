@@ -1,4 +1,4 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultTooltip = exports.defaultCountryStyle = exports.sizeMap = exports.heightRatio = exports.defaultColor = exports.defaultSize = void 0;
 exports.defaultSize = 'xl';

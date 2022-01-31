@@ -12,7 +12,7 @@ const Frame_1 = require("./components/Frame");
 const Region_1 = require("./components/Region");
 const TextLabel_1 = require("./components/TextLabel");
 (0, tslib_1.__exportStar)(require("./types"), exports);
-export default function WorldMap(props) {
+function WorldMap(props) {
     const { data, title, valuePrefix = '', valueSuffix = '', color = constants_1.defaultColor, strokeOpacity = 0.2, backgroundColor = 'white', tooltipBgColor = 'black', tooltipTextColor = 'white', size = constants_1.defaultSize, frame = false, frameColor = 'black', borderColor = 'black', richInteraction = false, styleFunction = (0, constants_1.defaultCountryStyle)(borderColor, strokeOpacity), tooltipTextFunction = constants_1.defaultTooltip, onClickFunction, hrefFunction, textLabelFunction = () => [], } = props;
     const windowWidth = (0, utils_1.useWindowWidth)();
     const width = typeof size === 'number' ? size : (0, utils_1.responsify)(size, windowWidth);

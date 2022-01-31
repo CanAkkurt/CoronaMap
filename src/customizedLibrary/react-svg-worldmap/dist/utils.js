@@ -1,4 +1,4 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.responsify = exports.useWindowWidth = void 0;
 const React = require("react");
