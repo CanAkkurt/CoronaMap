@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import  WorldMap  from 'react-svg-worldmap';
+import  WorldMap  from 'react-svg-worldmap-corona';
 import axios from 'axios';
 import './worldMap.css';
 import moment from 'moment';
@@ -75,6 +75,7 @@ function WereldMap() {
     });
   
    }
+   console.log(dataMap);
   // laat data zien wereldmap wanneer er op een land geklikt wordt
   const handleLocationClick = (event) => {
     

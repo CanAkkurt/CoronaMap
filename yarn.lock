@@ -1168,6 +1168,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@emailjs/browser@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@emailjs/browser/-/browser-3.4.0.tgz#47e9bf7b52a45ec416a6c82b89876316e32053aa"
+  integrity sha512-pTR9wEj0KLrJBVWFfB6IFEwmGIod/6cfN541Y0TVN2+9Bbn+R9a8gq6GeJZ6ggbYs36J3gCTXDyVKhtxjRsjtw==
+
 "@emotion/hash@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
@@ -10081,6 +10086,14 @@ react-svg-map@^2.2.0:
   integrity sha512-slZTt4ffXgOb3ND/WEHOc0ojX5lBEv9FKbTU3tWnTLZPQ9L0e686SBqgVxmsuTD+o52Aor87InMzAzDRTQedpA==
   dependencies:
     prop-types "^15.7.2"
+
+react-svg-worldmap-corona@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/react-svg-worldmap-corona/-/react-svg-worldmap-corona-0.0.1.tgz#1aa334441aa323d2ab0ec769605af99b870ea0cd"
+  integrity sha512-+3M9B2NyNZdsS0diFq4AFiKujS3ryvjbsUDfW33XykzyQgkMdeuq6XLMXr7/5eqtKey9JnTfPDdBgjiWW/HQpw==
+  dependencies:
+    d3-geo "^1.11.9"
+    react-path-tooltip "^1.0.17"
 
 react-svg-worldmap@^2.0.0-alpha.0:
   version "2.0.0-alpha.0"
