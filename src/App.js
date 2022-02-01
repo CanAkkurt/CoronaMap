@@ -26,7 +26,7 @@ function App() {
     <Router>
       <Navbar/> 
       <Routes>
-        <Route path='/CoronaMap' element={<WereldMap/>}/>
+        <Route path='/' element={<WereldMap/>}/>
         <Route path='/sign-up' element={<SignUp/>} />
         <Route path='/info' element={<Info/>} />
         <Route path='/log-in' element={<LogIn/>} />
