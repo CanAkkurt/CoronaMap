@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REACT_APP_BACKEND_BASE_URL: https://kadir-akkurt-corona.herokuapp.com/api/
+      SERVICE: service_a1424p5
+      USER: user_jd6epflg5ggYo9K58dvZJ
 
     steps:
       - name: Checkout 🛎️
