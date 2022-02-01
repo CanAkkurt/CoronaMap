@@ -110,7 +110,10 @@ function WereldMap() {
      <div className="mapInfoContainer">
         <div className="mapDiv">
           <WorldMap data={dataMap}  size="responsive" color="#c90000"   onClickFunction={handleLocationClick}  richInteraction="true" />
-        </div><GraphDonut data={dataDonut}/>
+        </div>
+        <div classname="sideInfo">
+        <div classname="grafDonut"><GraphDonut data={dataDonut}/></div>
+        
         <div className="info">
           <h3>Country: {clickedLocation}</h3>
           <h3>New covid cases: {clickedAmount}</h3>
@@ -120,6 +123,7 @@ function WereldMap() {
           <div classname="backgroundFlag">
           <Country countryShort={mapIso} size="xxl" />
           </div>
+        </div>
         </div>
      </div>
      </div>

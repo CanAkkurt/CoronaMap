@@ -1,8 +1,8 @@
 
 import React from "react";
-import img from "../images/stockImage.png"
+import img from "../images/stockImage1.png"
 import {useSession} from '../contexts/AuthProvider.jsx'
-
+import "./userPrivatePage.css";
 
 
 const UserPrivatePage= () => {
@@ -11,10 +11,13 @@ const UserPrivatePage= () => {
   console.log(user);
   return (
     <>
-      <div className='form-container'>
-        <img src={img}  className='home__hero-img' alt="logo" />
-        <label>{user.email}</label>
-        <label>{user.name}</label>
+      <div className='container-form'>
+        <img src={img}  className='logo' alt="logo" />
+        <form>
+         <label className="labelInfo">username:{user.name}</label>
+         <label className="labelInfo">email:{user.email}</label>
+        </form>
+      
       </div>
     </>
   );

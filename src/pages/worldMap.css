@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 .upperBody{
   padding-top: 20px;
 }
@@ -46,22 +36,13 @@ figure.worldmap__figure-container{
   border-radius:10px;
 }
 div.mapInfoContainer {
-  /* border:solid; */
-  
-
+ 
   display: flex;
   justify-content: left;
   align-items: left;
   zIndex: '1';
   margin-left:auto;
 margin-right:0;
-
-
-
-
-/* position: relative; */
-
-  
 }
 
 div.date {
@@ -74,17 +55,6 @@ div.date {
 div.dataVis {
   
 }
-
-/* div.map {
-  
-  left:10px;
-  left:-10px; 
-  position:absolute;
-  border: solid;
-  float:left;
-  display: inline-block;
-  
-} */
 
   @media only screen and (max-width: 380px) {
 

@@ -1,0 +1,44 @@
+
+
+
+.logo{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logo:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
+.labelInfo{
+  padding-top:20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-decoration:none;
+font-family:'Roboto',sans-serif;
+text-transform:uppercase;
+font-weight:400;
+
+}
+
+
+.container-form {
+  margin: 100px auto;
+  width: 500px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  height: 450px;
+  
+  grid-template-columns: 1fr 1fr;
+}
