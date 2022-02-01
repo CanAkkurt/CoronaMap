@@ -42,7 +42,7 @@ function WereldMap() {
          setData7(result.data)
     
      })
-     axios.get('http://kadir-akkurt-corona.herokuapp.com/api/countries').then(response =>setdataTest(response.data.data));
+     axios.get('https://kadir-akkurt-corona.herokuapp.com/api/countries').then(response =>setdataTest(response.data.data));
   },[])
   
   
@@ -50,7 +50,7 @@ function WereldMap() {
     dataMap.length = 0;
     var dateTest = moment(startDate).format('YYYY-MM-DD')
     
-    axios.get(`http://kadir-akkurt-corona.herokuapp.com/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
+    axios.get(`https://kadir-akkurt-corona.herokuapp.com/api/cases/${dateTest}`).then(response =>setDataCase(response.data));
       
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
