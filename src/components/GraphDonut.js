@@ -4,6 +4,7 @@ import ReactApexChart from 'react-apexcharts'
 
 function GraphDonut(data) {
   
+ 
    const labels = [ 'covid', 'E']
   const options = {
     dataLabels: {
@@ -18,10 +19,17 @@ function GraphDonut(data) {
         format: "yy-MM-dd",
       },
     },
+    plotOptions: {
+      pie: {
+        donut: {
+          labels: {
+            show: true
+          }
+        }
+      }
+    },
+    labels:["total deaths","total infected"]
   };
- 
-  // console.log(data.data);
-   
   return (
     <div>
      
