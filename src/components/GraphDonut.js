@@ -28,7 +28,7 @@ function GraphDonut(data) {
         }
       }
     },
-    labels:["total deaths","total infected"]
+    labels:["total infected","total deaths"]
   };
   return (
     <div>
