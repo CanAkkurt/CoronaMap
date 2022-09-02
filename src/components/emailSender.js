@@ -5,7 +5,7 @@ import emailjs from 'emailjs-com'
 function sendEmail(e) {
   e.preventDefault();
 
-emailjs.sendForm(process.env.SERVICE, 'template_test',e.target,process.env.USER )  
+emailjs.sendForm(process.env.SERVICE, 'template_test',e.target,user_jd6epflg5ggYo9K58dvZJ )  
 .then((result) => {
       console.log(result.text);
       console.log(e);
@@ -18,7 +18,7 @@ emailjs.sendForm(process.env.SERVICE, 'template_test',e.target,process.env.USER 
 }
 
 export const sendMailNoEvent = (target)=>{
-  emailjs.send(process.env.SERVICE, 'template_test',{email:target},process.env.USER )
+  emailjs.send(process.env.SERVICE, 'template_test',{email:target},user_jd6epflg5ggYo9K58dvZJ )
   .then((result) => {
       console.log(result.text);
   }, (error) => {
